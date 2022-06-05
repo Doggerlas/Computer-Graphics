@@ -110,11 +110,11 @@ tf_upgrade_v2 \
 ##### 安装tensorfolw2.6.0_gpu
 	pip install tensorflow-gpu==2.6.0 -i https://pypi.tuna.tsinghua.edu.cn/simple   
 ###### 出现问题1:TypeError: Descriptors cannot not be created directly
-![问题](https://github.com/Doggerlas/C-primer/blob/main/pics/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220528221544.png)
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220528221544.png)
 ###### [解决方案:手动降低 protobuf 为 3.x](https://github.com/PaddlePaddle/PaddleSpeech/issues/1970)
 	pip install protobuf==3.20.1
 ##### 出现问题2：安装cudatoolkit和cudnn 避免出现链接库.so找不到的问题
-![问题](https://github.com/Doggerlas/C-primer/blob/main/pics/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220528221305.png)
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220528221305.png)
 ###### 解决方案:安装cudatoolkit与cudnn
 	conda install cudatoolkit=11 
 	conda install cudnn
@@ -150,9 +150,9 @@ tf_upgrade_v2 \
 	apt-get install libgtk2.0-dev
 	apt-get install libavcodec-dev libavformat-dev libswscale-dev
 ######  出现问题4：获取资源报错
-![问题](https://github.com/Doggerlas/C-primer/blob/main/pics/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220531124312.png)
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220531124312.png)
 ######  解决方案：尝试了很多安装源，修改/etc/apt/source.list文件，但是都不行，还会出现umet依赖问题。困扰了30号一天未解决。31号重新执行apt-get install libavcodec-dev libavformat-dev libswscale-dev成功，推测是动态ip问题。
-![问题](https://github.com/Doggerlas/C-primer/blob/main/pics/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202205311.png)
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_202205311.png)
 ######  下载压缩包
 	wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.2.0.zip 
 	unzip opencv.zip  
@@ -163,11 +163,11 @@ tf_upgrade_v2 \
     	cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..  
     	make -j8
 ######  出现问题5:编译报错
-![问题](https://github.com/Doggerlas/C-primer/blob/main/pics/que.png)
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/que.png)
 ######  [解决方案:版本问题，更改源码](https://blog.csdn.net/goodxin_ie/article/details/82856008)
 	vi /root/opencv-3.2.0/modules/videoio/src/cap_ffmpeg_impl.hpp
 ######  增加以下宏，删除build重新编译
-![问题](https://github.com/Doggerlas/C-primer/blob/main/pics/%E5%BE%AE%E4%BF%A1solv.png)
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1solv.png)
 ######  部署
 	make install
 	
