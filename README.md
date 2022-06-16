@@ -1,5 +1,4 @@
 # Computer-Graphics
-2022上半年计算机图形学自学
 
 opengl 工具书+代码
 
