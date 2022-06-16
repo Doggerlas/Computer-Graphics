@@ -9,44 +9,44 @@ GLuint renderingProgram;
 GLuint vao[numVAOs];
 
 GLuint createShaderProgram() {
-	//GLSL¶¥µã×ÅÉ«Æ÷´úÂë
+	//GLSLé¡¶ç‚¹ç€è‰²å™¨ä»£ç 
 	const char *vshaderSource =
 		"#version 430    \n"
 		"void main(void) \n"
 		"{ gl_Position = vec4(0.0, 0.0, 0.0, 1.0); }";
-	//GLSLÆ¬¶Î×ÅÉ«Æ÷´úÂë
+	//GLSLç‰‡æ®µç€è‰²å™¨ä»£ç 
 	const char *fshaderSource =
 		"#version 430    \n"
 		"out vec4 color; \n"
 		"void main(void) \n"
 		"{ color = vec4(0.0, 0.0, 1.0, 1.0); }";
 
-	GLuint vShader = glCreateShader(GL_VERTEX_SHADER); //´´½¨ÁËÀàĞÍÎªGL_VERTEX_SHADERµÄ×ÅÉ«Æ÷
-	GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);//´´½¨ÁËÀàĞÍÎªGL_FRAGMENT_SHADERµÄ×ÅÉ«Æ÷
-	GLuint vfprogram = glCreateProgram();//´´½¨³ÌĞò¶ÔÏó
+	GLuint vShader = glCreateShader(GL_VERTEX_SHADER); //åˆ›å»ºäº†ç±»å‹ä¸ºGL_VERTEX_SHADERçš„ç€è‰²å™¨
+	GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);//åˆ›å»ºäº†ç±»å‹ä¸ºGL_FRAGMENT_SHADERçš„ç€è‰²å™¨
+	GLuint vfprogram = glCreateProgram();//åˆ›å»ºç¨‹åºå¯¹è±¡
 
-	glShaderSource(vShader, 1, &vshaderSource, NULL);//½«GLSL´úÂë´Ó×Ö·û´®ÔØÈë¿Õ×ÅÉ«Æ÷¶ÔÏóÖĞ
+	glShaderSource(vShader, 1, &vshaderSource, NULL);//å°†GLSLä»£ç ä»å­—ç¬¦ä¸²è½½å…¥ç©ºç€è‰²å™¨å¯¹è±¡ä¸­
 	glShaderSource(fShader, 1, &fshaderSource, NULL);
-	glCompileShader(vShader);//±àÒë¸÷×ÅÉ«Æ÷
+	glCompileShader(vShader);//ç¼–è¯‘å„ç€è‰²å™¨
 	glCompileShader(fShader);
 
-	glAttachShader(vfprogram, vShader);//½«×ÅÉ«Æ÷¼ÓÈë³ÌĞò¶ÔÏó
+	glAttachShader(vfprogram, vShader);//å°†ç€è‰²å™¨åŠ å…¥ç¨‹åºå¯¹è±¡
 	glAttachShader(vfprogram, fShader);
-	glLinkProgram(vfprogram);//ÇëÇóGLSL±àÒëÆ÷È·±£ËüÃÇµÄ¼æÈİĞÔ
+	glLinkProgram(vfprogram);//è¯·æ±‚GLSLç¼–è¯‘å™¨ç¡®ä¿å®ƒä»¬çš„å…¼å®¹æ€§
 
 	return vfprogram;
 }
 
 void init(GLFWwindow* window) {
 	renderingProgram = createShaderProgram();
-	glGenVertexArrays(numVAOs, vao);//´´½¨OpenGLÒªÇóµÄVAO
+	glGenVertexArrays(numVAOs, vao);//åˆ›å»ºOpenGLè¦æ±‚çš„VAO
 	glBindVertexArray(vao[0]);
 }
 
 void display(GLFWwindow* window, double currentTime) {
-	glUseProgram(renderingProgram);//½«º¬ÓĞÁ½¸öÒÑ±àÒë×ÅÉ«Æ÷ µÄ³ÌĞòÔØÈëOpenGL¹ÜÏß½×¶Î£¨ÔÚGPUÉÏ£©
+	glUseProgram(renderingProgram);//å°†å«æœ‰ä¸¤ä¸ªå·²ç¼–è¯‘ç€è‰²å™¨ çš„ç¨‹åºè½½å…¥OpenGLç®¡çº¿é˜¶æ®µï¼ˆåœ¨GPUä¸Šï¼‰
 	glPointSize(30.0f);
-	glDrawArrays(GL_POINTS, 0, 1);//Æô¶¯¹ÜÏß´¦Àí¹ı³Ì,Ô­Ê¼ÀàĞÍÊÇGL_POINTS£¬½öÓÃÀ´ÏÔÊ¾Ò»¸öµã
+	glDrawArrays(GL_POINTS, 0, 1);//å¯åŠ¨ç®¡çº¿å¤„ç†è¿‡ç¨‹,åŸå§‹ç±»å‹æ˜¯GL_POINTSï¼Œä»…ç”¨æ¥æ˜¾ç¤ºä¸€ä¸ªç‚¹
 }
 
 int main(void) {
