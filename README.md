@@ -1,7 +1,7 @@
 # Computer-Graphics
 
-opengl 工具书+代码
+## opengl 工具书+代码
 
-project 项目
+## project 项目
 
-theory 图形学课程+笔记
+## theory 图形学课程+笔记
