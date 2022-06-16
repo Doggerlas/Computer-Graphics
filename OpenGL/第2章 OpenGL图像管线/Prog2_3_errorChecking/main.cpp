@@ -8,7 +8,7 @@ using namespace std;
 GLuint renderingProgram;
 GLuint vao[numVAOs];
 
-void printShaderLog(GLuint shader) {//µ±GLSL±àÒëÊ§°ÜÊ±£¬ÏÔÊ¾OpenGLÈÕÖ¾ÄÚÈİ
+void printShaderLog(GLuint shader) {//å½“GLSLç¼–è¯‘å¤±è´¥æ—¶ï¼Œæ˜¾ç¤ºOpenGLæ—¥å¿—å†…å®¹
 	int len = 0;
 	int chWrittn = 0;
 	char *log;
@@ -21,7 +21,7 @@ void printShaderLog(GLuint shader) {//µ±GLSL±àÒëÊ§°ÜÊ±£¬ÏÔÊ¾OpenGLÈÕÖ¾ÄÚÈİ
 	}
 }
 
-void printProgramLog(int prog) {//µ±GLSLÁ´½ÓÊ§°ÜÊ±£¬ÏÔÊ¾OpenGLÈÕÖ¾ÄÚÈİ
+void printProgramLog(int prog) {//å½“GLSLé“¾æ¥å¤±è´¥æ—¶ï¼Œæ˜¾ç¤ºOpenGLæ—¥å¿—å†…å®¹
 	int len = 0;
 	int chWrittn = 0;
 	char *log;
@@ -34,8 +34,8 @@ void printProgramLog(int prog) {//µ±GLSLÁ´½ÓÊ§°ÜÊ±£¬ÏÔÊ¾OpenGLÈÕÖ¾ÄÚÈİ
 	}
 }
 /*
-¼ì²éOpenGL´íÎó±êÖ¾£¬¼´ÊÇ·ñ·¢ÉúOpenGL´íÎó
-checkOpenGLError()¼ÈÓÃÓÚ¼ì²âGLSL±àÒë´íÎó£¬ÓÖÓÃÓÚ¼ì²â OpenGLÔËĞĞÊ±µÄ´íÎó£¬Òò´ËÎÒÃÇÇ¿ÁÒ½¨ÒéÔÚÕû¸öC++/OpenGLÓ¦ÓÃ³ÌĞò¿ª·¢¹ı³ÌÖĞÊ¹ÓÃËü
+æ£€æŸ¥OpenGLé”™è¯¯æ ‡å¿—ï¼Œå³æ˜¯å¦å‘ç”ŸOpenGLé”™è¯¯
+checkOpenGLError()æ—¢ç”¨äºæ£€æµ‹GLSLç¼–è¯‘é”™è¯¯ï¼Œåˆç”¨äºæ£€æµ‹ OpenGLè¿è¡Œæ—¶çš„é”™è¯¯ï¼Œå› æ­¤æˆ‘ä»¬å¼ºçƒˆå»ºè®®åœ¨æ•´ä¸ªC++/OpenGLåº”ç”¨ç¨‹åºå¼€å‘è¿‡ç¨‹ä¸­ä½¿ç”¨å®ƒ
 */
 bool checkOpenGLError() {//
 	bool foundError = false;
@@ -71,7 +71,7 @@ GLuint createShaderProgram() {
 	glShaderSource(vShader, 1, &vshaderSource, NULL);
 	glShaderSource(fShader, 1, &fshaderSource, NULL);
 
-	// ²¶»ñ±àÒë×ÅÉ«Æ÷Ê±µÄ´íÎó
+	// æ•è·ç¼–è¯‘ç€è‰²å™¨æ—¶çš„é”™è¯¯
 	glCompileShader(vShader);
 	checkOpenGLError();
 	glGetShaderiv(vShader, GL_COMPILE_STATUS, &vertCompiled);
@@ -85,7 +85,7 @@ GLuint createShaderProgram() {
 
 	glCompileShader(fShader);
 	checkOpenGLError();
-	glGetShaderiv(fShader, GL_COMPILE_STATUS, &fragCompiled);//Ìá¹©ÓĞ¹Ø±àÒë¹ıµÄGLSL×ÅÉ«Æ÷ºÍ³ÌĞòµÄĞÅÏ¢
+	glGetShaderiv(fShader, GL_COMPILE_STATUS, &fragCompiled);//æä¾›æœ‰å…³ç¼–è¯‘è¿‡çš„GLSLç€è‰²å™¨å’Œç¨‹åºçš„ä¿¡æ¯
 	if (fragCompiled == 1) {
 		cout << "fragment compilation success" << endl;
 	}
@@ -93,14 +93,14 @@ GLuint createShaderProgram() {
 		cout << "fragment compilation failed" << endl;
 		printShaderLog(fShader);
 	}
-	// ²¶»ñÁ´½Ó×ÅÉ«Æ÷Ê±µÄ´íÎó
+	// æ•è·é“¾æ¥ç€è‰²å™¨æ—¶çš„é”™è¯¯
 	glAttachShader(vfprogram, vShader);
 	glAttachShader(vfprogram, fShader);
 	glLinkProgram(vfprogram);
 
 	glLinkProgram(vfprogram);
 	checkOpenGLError();
-	glGetProgramiv(vfprogram, GL_LINK_STATUS, &linked);//Ìá¹©ÓĞ¹Ø±àÒë¹ıµÄGLSL×ÅÉ«Æ÷ºÍ³ÌĞòµÄĞÅÏ¢
+	glGetProgramiv(vfprogram, GL_LINK_STATUS, &linked);//æä¾›æœ‰å…³ç¼–è¯‘è¿‡çš„GLSLç€è‰²å™¨å’Œç¨‹åºçš„ä¿¡æ¯
 	if (linked == 1) {
 		cout << "linking succeeded" << endl;
 	}
