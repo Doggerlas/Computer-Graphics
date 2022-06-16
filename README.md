@@ -2,6 +2,6 @@
 
 ## opengl 工具书+代码
 
-## project 项目
+## Project 项目
 
-## theory 图形学课程+笔记
+## Theory 图形学课程+笔记
