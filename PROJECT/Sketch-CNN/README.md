@@ -170,10 +170,32 @@ tf_upgrade_v2 \
 ![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1solv.png)
 ######  部署
 	make install
-	
 
+# 20220628 在482ee69cb441容器中
+## 1.本次编译custom_dataDecoder.so 文件
+由于opencv3版本已经删除了部分so文件，为了编译通过，build.sh脚本也做了相应的更改，将opencv3.2.0版本没有的依赖so文件删除。有以下五个
 
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220628153012.png)
 
+原build为build.sh.bak.二者对比如下
+新build.sh
+
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%96%B0build.png)
+
+原build.sh
+
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%8E%9Fbuild.png)
+######  注意：缺少这五个文件完成的编译结果造成的影响未知
+
+## 2.关于network和loader文件的修改
+python项目相互调用是将文件夹中的每个文件看做是一个pakege(每个文件夹都有个__init__.py),该文件的方法视为一个module(比如from   utils.util_func import cropconcat_layer就是调用的utils/util_func.py的cropconcat_layer方法)
+
+需要事先在bashrc中定义python路径 才能调用.这里我定义的pythonpath是上一级目录 也就是/root/SketchCNN/network/所以代码中就直接写network下级目录就行
+
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/pythonpath.png)
+
+修改完后，记得source ~/.bashrc
+因为network与loader是方法集合，不涉及数据处理，可以直接python3 loader.py python3 network.py试试 没有错误就说明能用 
 
 	
 
