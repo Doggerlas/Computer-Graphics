@@ -6,7 +6,8 @@ tf_upgrade_v2 \
   --reportfile report.txt
  
 # 训练指令
-    	python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
+    	
+	python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
 	
 	python train_baselineNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_baselineNet --nb_gpus=2 --devices=0,1 
 	
