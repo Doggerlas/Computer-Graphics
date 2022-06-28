@@ -6,8 +6,14 @@ tf_upgrade_v2 \
   --reportfile report.txt
  
 # 训练指令
-    python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
- 
+    	python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
+	
+	python train_baselineNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_baselineNet --nb_gpus=2 --devices=0,1 
+	
+	python train_dfNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_dfNet --nb_gpus=2 --devices=0,1 
+	
+	python train_geomNet.py --field_ckpt=../output/train_dfNet/savedModel/checkpoint --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_geomNet --nb_gpus=2 --devices=0,1 
+
 # docker相关指令
 ##### 启动docker(因为没有root 所以不用管)
     systemctl start docker         
