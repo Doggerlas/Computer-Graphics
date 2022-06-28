@@ -195,7 +195,7 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/pythonpath.png)
 
 修改完后，记得source ~/.bashrc
-因为network与loader是方法集合，不涉及数据处理，可以直接python3 loader.py python3 network.py试试 没有错误就说明能用 
+因为network与loader是方法集合，不涉及数据处理，可以直接python3 loader.py python3 network.py试试 没有错误就说明引用没错 但是并不代表这两个脚本没错
 
 ######  出现问题6：ModuleNotFoundError: No module named ‘tensorflow.contrib‘
 ######  原因：tensorflow 2.0以后没有 tensorflow.contrib 采用以下方法2进行代码修改
@@ -215,3 +215,8 @@ python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/ev
 ![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E9%94%99%E8%AF%AF2.png)
 ######  原因：缺少keras 
 ######  [解决方案](https://codecary.com/solved-importerror-cannot-import-name-dtensor-from-tensorflow-compat-v2-experimental/)：pip install keras==2.6
+
+######  出现问题9：AttributeError: module 'tensorflow' has no attribute 'contrib'
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220628162133.png)
+######  原因：过时了 contrib已经不用了
+######  [解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/ebb7f67d52479105997c4048dbfce6d.png)
