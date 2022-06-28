@@ -218,5 +218,5 @@ python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/ev
 
 ######  出现问题9：AttributeError: module 'tensorflow' has no attribute 'contrib'
 ![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220628162133.png)
-######  原因：过时了 contrib已经不用了
+######  原因：过时了 contrib已经不用了 自己换了个函数
 ######  ![解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/ebb7f67d52479105997c4048dbfce6d.png)
