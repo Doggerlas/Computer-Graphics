@@ -201,5 +201,17 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ######  原因：tensorflow 2.0以后没有 tensorflow.contrib 采用以下方法2进行代码修改
 ######  [解决方案](https://blog.csdn.net/qq_38251616/article/details/114820099)
 
+## 3.训练
+训练指令(以nativeNet为例)
+python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
 
-	
+######  出现问题7：tf.placeholder() is not compatible with eager execution  
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E9%94%99%E8%AF%AF1.png)
+######  原因：TensoFlow2.0及以上的版本都发现啊出现这个问题
+######  [解决方案](https://blog.csdn.net/weixin_43763859/article/details/104537392)
+![解决](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E8%A7%A3%E5%86%B31.png)
+
+######  出现问题8：ImportError: cannot import name 'dtensor' from 'tensorflow.compat.v2.experimental'
+![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E9%94%99%E8%AF%AF2.png)
+######  原因：缺少keras 
+######  [解决方案](https://codecary.com/solved-importerror-cannot-import-name-dtensor-from-tensorflow-compat-v2-experimental/)：pip install keras==2.6
