@@ -197,6 +197,9 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 修改完后，记得source ~/.bashrc
 因为network与loader是方法集合，不涉及数据处理，可以直接python3 loader.py python3 network.py试试 没有错误就说明能用 
 
-	
+######  出现问题6：ModuleNotFoundError: No module named ‘tensorflow.contrib‘
+######  原因：tensorflow 2.0以后没有 tensorflow.contrib 采用以下方法2进行代码修改
+######  [解决方案](https://blog.csdn.net/qq_38251616/article/details/114820099)
+
 
 	
