@@ -217,7 +217,7 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ######  原因：过时了 contrib已经不用了 自己换了个函数
 ######  ![解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/ebb7f67d52479105997c4048dbfce6d.png)
 
-##  	4.没有错误 开始进行训练 :
+##  	4.错误已解决 开始进行训练 :
 ######  训练指令(以sampledata(49M)作为数据集)
 ![解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%9E%B6%E6%9E%84.png)
     	
