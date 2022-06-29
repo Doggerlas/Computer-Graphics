@@ -4,16 +4,6 @@ tf_upgrade_v2 \
   --intree SketchCNN/ \
   --outtree SketchCNN_v2/ \
   --reportfile report.txt
- 
-# 训练指令
-    	
-	python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
-	
-	python train_baselineNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_baselineNet --nb_gpus=2 --devices=0,1 
-	
-	python train_dfNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_dfNet --nb_gpus=2 --devices=0,1 
-	
-	python train_geomNet.py --field_ckpt=../output/train_dfNet/savedModel/checkpoint --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_geomNet --nb_gpus=2 --devices=0,1 
 
 # docker相关指令
 ##### 启动docker(因为没有root 所以不用管)
@@ -210,11 +200,10 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 ## 3.训练
 训练指令(以nativeNet为例)
-python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
 
 ######  出现问题7：tf.placeholder() is not compatible with eager execution  
 ![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E9%94%99%E8%AF%AF1.png)
-######  原因：TensoFlow2.0及以上的版本都发现啊出现这个问题
+######  原因：TensoFlow2.0及以上的版本出现这个问题，还是版本问题
 ######  [解决方案](https://blog.csdn.net/weixin_43763859/article/details/104537392)
 ![解决](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E8%A7%A3%E5%86%B31.png)
 
@@ -227,3 +216,26 @@ python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/ev
 ![问题](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220628162133.png)
 ######  原因：过时了 contrib已经不用了 自己换了个函数
 ######  ![解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/ebb7f67d52479105997c4048dbfce6d.png)
+
+##  	4.没有错误 开始进行训练 :
+######  训练指令(以sampledata(49M)作为数据集)
+![解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%9E%B6%E6%9E%84.png)
+    	
+	python train_naiveNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
+	
+	python train_baselineNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_baselineNet --nb_gpus=2 --devices=0,1 
+	
+	python train_dfNet.py --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_dfNet --nb_gpus=2 --devices=0,1 
+	
+	python train_geomNet.py --field_ckpt=../output/train_dfNet/savedModel/checkpoint --dbTrain=../sampleData/train --dbEval=../sampleData/eval --outDir=../output/train_geomNet --nb_gpus=2 --devices=0,1 
+
+######  训练指令(以data(157G)作为数据集(我把data处理成了和sampledata一样的架构))
+![解决方案](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%9E%B6%E6%9E%842.png)
+
+	python train_naiveNet.py --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_naiveNet --nb_gpus=2 --devices=0,1 --lossId=0
+	
+	python train_baselineNet.py --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_baselineNet --nb_gpus=2 --devices=0,1 
+	
+	python train_dfNet.py --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_dfNet --nb_gpus=2 --devices=0,1 
+	
+	python train_geomNet.py --field_ckpt=../output/train_dfNet/savedModel/checkpoint --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_geomNet --nb_gpus=2 --devices=0,1 
