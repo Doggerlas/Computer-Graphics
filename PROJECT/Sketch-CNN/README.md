@@ -243,3 +243,14 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 # 训练图
 ![训练](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E8%AE%AD%E7%BB%83.png)
+
+
+
+# 20220629 在台式机上
+## 1.部署网络(网络模型由原作者提供 我想先拿原作者的成功实现简单地交互 进行下去以后 再使用自己的)
+### 需要的材料：
+[原始数据集](https://connecthkuhk-my.sharepoint.com/personal/changjli_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchangjli%5Fconnect%5Fhku%5Fhk%2FDocuments%2FSketchCNN%2FRelease%2FTrainingData%2FSketchCnnFinal&ga=1)
+[冻结的网络](https://connecthkuhk-my.sharepoint.com/personal/changjli_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchangjli%5Fconnect%5Fhku%5Fhk%2FDocuments%2FSketchCNN%2FRelease%2FFinalModelFrozen&ga=1)
+[检查点](https://connecthkuhk-my.sharepoint.com/personal/changjli_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchangjli%5Fconnect%5Fhku%5Fhk%2FDocuments%2FSketchCNN%2FRelease%2FCheckpoint&ga=1)
+[预构建的 tensorflow 库和 dll](https://connecthkuhk-my.sharepoint.com/personal/changjli_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchangjli%5Fconnect%5Fhku%5Fhk%2FDocuments%2FSketchCNN%2FRelease%2FTensorFlow&ga=1)
+
