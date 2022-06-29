@@ -238,7 +238,7 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 	
 	python train_dfNet.py --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_dfNet --nb_gpus=2 --devices=0,1 
 	
-	python train_geomNet.py --field_ckpt=../output/train_dfNet/savedModel/checkpoint --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_geomNet --nb_gpus=2 --devices=0,1 
+	python train_geomNet.py --field_ckpt=../output/train_dfNet/savedModel/ --dbTrain=../data/train --dbEval=../data/eval --outDir=../output/train_geomNet --nb_gpus=2 --devices=0,1 
 
 
 # 训练图
