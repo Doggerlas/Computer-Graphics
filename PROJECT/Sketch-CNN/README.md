@@ -247,7 +247,7 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 
 # 20220629 在台式机上
-## 1.部署网络(网络模型由原作者提供 我想先拿原作者的成功实现简单地交互 进行下去以后 再使用自己的)
+## 1.文件获取(网络模型由原作者提供 我想先拿原作者的成功实现简单地交互 进行下去以后 再使用自己的)
 ### 需要的材料：
 [原始数据集](https://connecthkuhk-my.sharepoint.com/personal/changjli_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchangjli%5Fconnect%5Fhku%5Fhk%2FDocuments%2FSketchCNN%2FRelease%2FTrainingData%2FSketchCnnFinal&ga=1)
 
@@ -257,3 +257,87 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 [预构建的 tensorflow 库和 dll](https://connecthkuhk-my.sharepoint.com/personal/changjli_connect_hku_hk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fchangjli%5Fconnect%5Fhku%5Fhk%2FDocuments%2FSketchCNN%2FRelease%2FTensorFlow&ga=1)
 
+# 20220630 在台式机上
+## 1.链接提供的库文件
+### 1.首先这是我的文件存储架构 
+
+--Checkpoint是网络检查点，里面只有我们需要的网络(baseline和nativeNet没有下载) 
+
+--FinalModelFrozen是冻结的网络
+
+--Pre_built_lib_and_dl是预编译的lib和dll文件
+
+![架构](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E7%BB%93%E6%9E%84.png)
+
+### 2.VS2015配置
+--新建project，记得调试模式选择Release x64，配置的界面也要在此模式下进行。不然就会出现.o文件链接失败的问题 
+(Release/Debug 以及x64/x86的四种搭配环境的搭建选择是独立的，也就是在Release x64环境下链接的文件在Release x86进行调试程序时是查不到的)
+![R](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/R.png)
+![R](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%A1%862.png)
+
+#### 配置lib文件
+
+	设置库路径
+	
+	Project->SketchCNN properties->Configuration Properties->VC++ Directories->General->Library Directories 添加以下两个lib文件路径
+	
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\lib;D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\cudnn;（注意不要替换原有项）
+
+添加完成后如下红框所示
+
+![1](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%A1%86.png)
+
+	设置链接器
+	
+	Project->SketchCNN properties->Configuration Properties->Linker->Input->Additional Dependencies 添加以下两个lib文件
+	
+	tensorflow.lib cudnn.lib
+
+添加完成后如下红框所示
+
+![1](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%A1%861.png)
+	
+	设置附加库路径
+	
+	Project->SketchCNN properties->Configuration Properties->>Linker->General->Additional Library Directories .
+	
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\lib;D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\cudnn
+
+添加完成后如下红框所示
+
+![1](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%A1%864.png)
+
+#### 配置dll文件
+	
+	将bin中的tensorflow.dll和cudnn64_6.dll放到项目工程目录C:\Users\Sim\Documents\Visual Studio 2015\Projects\SketchCNN\SketchCNN
+
+![1](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%A1%863.png)
+
+##### 配置其他Include头文件
+	
+	Project->SketchCNN properties->Configuration Properties->VC++ Directories->General->Include Directories 添加以下路径
+	
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\include;
+	
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\include\eigen_archive;
+	
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\include\google\protobuf;
+
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\include\third_party\eigen3;
+
+	D:\SketchCNN\Author_file\Module\Pre_built_lib_and_dl\cudnn;
+
+	![1](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%A1%865.png)
+
+######  出现问题10：trained_network.obj : error LNK2001: unresolved external symbol "private: void __thiscall tensorflow(编译没通过 出现了很多链接错误)
+######  原因：应该在Release x64下进行环境配置
+######  解决方案：调试与配置的环境统一为Release x64
+
+######  出现问题11：编译通过 但是缺少一些cuda8.0的dll
+######  原因：缺什么下载什么 都放在项目工程目录C:\Users\Sim\Documents\Visual Studio 2015\Projects\SketchCNN\SketchCNN
+######  因为我没装CUDA8.0 所以这里我直接补充的依赖dll包 
+![cublas64_80.dll cudart64_80.dll curand64_80.dll](https://download.csdn.net/download/qq_29592829/10704068)
+![cufft64_80.dll](https://download.mersenne.ca/CUDA-DLLs/CUDA-8.0)
+![cusolver64_80.dll 这个下载链接是cusolver64_100的 下载之后手动改名为cusolver64_80即可 ](https://download.csdn.net/download/t_qrqt/12433808?utm_medium=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&depth_1-utm_source=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&dest=https%3A%2F%2Fdownload.csdn.net%2Fdownload%2Ft_qrqt%2F12433808&spm=1003.2020.3001.6616.4)
+
+######  ![解决方案：](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%B7%A5%E7%A8%8B.png)
