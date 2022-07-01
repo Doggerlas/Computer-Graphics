@@ -336,8 +336,8 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ######  出现问题11：编译通过 但是缺少一些cuda8.0的dll
 ######  原因：缺什么下载什么 都放在项目工程目录C:\Users\Sim\Documents\Visual Studio 2015\Projects\SketchCNN\SketchCNN
 ######  因为我没装CUDA8.0 所以这里我直接补充的依赖dll包 
-![cublas64_80.dll cudart64_80.dll curand64_80.dll](https://download.csdn.net/download/qq_29592829/10704068)
-![cufft64_80.dll](https://download.mersenne.ca/CUDA-DLLs/CUDA-8.0)
-![cusolver64_80.dll 这个下载链接是cusolver64_100的 下载之后手动改名为cusolver64_80即可 ](https://download.csdn.net/download/t_qrqt/12433808?utm_medium=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&depth_1-utm_source=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&dest=https%3A%2F%2Fdownload.csdn.net%2Fdownload%2Ft_qrqt%2F12433808&spm=1003.2020.3001.6616.4)
+[cublas64_80.dll cudart64_80.dll curand64_80.dll](https://download.csdn.net/download/qq_29592829/10704068)
+[cufft64_80.dll](https://download.mersenne.ca/CUDA-DLLs/CUDA-8.0)
+[cusolver64_80.dll 这个下载链接是cusolver64_100的 下载之后手动改名为cusolver64_80即可 ](https://download.csdn.net/download/t_qrqt/12433808?utm_medium=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&depth_1-utm_source=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&dest=https%3A%2F%2Fdownload.csdn.net%2Fdownload%2Ft_qrqt%2F12433808&spm=1003.2020.3001.6616.4)
 
 ######  ![解决方案：](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%B7%A5%E7%A8%8B.png)
