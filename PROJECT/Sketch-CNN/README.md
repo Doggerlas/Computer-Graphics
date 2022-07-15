@@ -5,6 +5,9 @@ tf_upgrade_v2 \
   --outtree SketchCNN_v2/ \
   --reportfile report.txt
 
+# 单文件升级指令
+tf_upgrade_v2  --infile ./test_geomNet.py  --outfile ./test_geomNet_v2.py --reportfile report.txt
+
 # docker相关指令
 ##### 启动docker(因为没有root 所以不用管)
     systemctl start docker         
