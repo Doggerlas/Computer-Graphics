@@ -360,3 +360,5 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ######  出现问题13：Opencv版本问题 OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR'
 ######  原因：很明显EXR这个功能被禁用了，当然我是不会做版本回退这种憨憨事的
 ######  解决方法：打开我的test_gemoNet.py把这一行：os.environ["OPENCV_IO_ENABLE_OPENEXR"]="1"加到文件开头就行了
+
+其他的test文件也可以参照这个文件升级，其实没多大改动，用compare看看吧
