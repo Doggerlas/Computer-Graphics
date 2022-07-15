@@ -344,3 +344,16 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 [cusolver64_80.dll 这个下载链接是cusolver64_100的 下载之后手动改名为cusolver64_80即可 ](https://download.csdn.net/download/t_qrqt/12433808?utm_medium=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&depth_1-utm_source=distribute.pc_relevant_download.none-task-download-2~default~BlogCommendFromBaidu~Rate-3-12433808-download-15631170.dl_show_rating&dest=https%3A%2F%2Fdownload.csdn.net%2Fdownload%2Ft_qrqt%2F12433808&spm=1003.2020.3001.6616.4)
 
 ######  ![解决方案：](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E5%B7%A5%E7%A8%8B.png)
+
+# 20220715 在服务器上 升级test_gemoNet.py到tf2.0
+
+######  测试指令
+	python3 test_geomNet.py --cktDir=../output/train_geomNet/savedModel --dbTest=../data/test --outDir=../output/test/test_geomNet --device=0,1  --graphName=SAS_2stage_GeoNet.pbtxt
+
+######  出现问题12：缩进错误Inconsistent use of tabs and spaces in indentation
+######  原因：很明显问题出在了缩进上
+######  解决方法：巨坑！！！python认为tab与space不是等价的，需要把所有空格删除，再用tab进行补全。但是看是一点也看不出来的。卡了我一小时，GG
+
+######  出现问题13：Opencv版本问题 OpenEXR codec is disabled. You can enable it via 'OPENCV_IO_ENABLE_OPENEXR'
+######  原因：很明显EXR这个功能被禁用了，当然我是不会做版本回退这种憨憨事的
+######  解决方法：打开我的test_gemoNet.py把这一行：os.environ["OPENCV_IO_ENABLE_OPENEXR"]="1"加到文件开头就行了
