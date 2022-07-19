@@ -362,3 +362,8 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ######  解决方法：打开我的test_gemoNet.py把这一行：os.environ["OPENCV_IO_ENABLE_OPENEXR"]="1"加到文件开头就行了
 
 其他的test文件也可以参照这个文件升级，其实没多大改动，用compare看看吧
+
+# 20220719 在服务器上 升级freeze_graph_tool.py到tf2.0
+
+######  测试指令
+	python3 freeze_graph_tool.py --output_dir=../output/test/test_geomNet --ckpt_dir=../output/train_geomNet/savedModel --ckpt_name=SAS_2stage_GeoNet.pbtxt --graph_name=SAS_2stage_GeoNet.pb --net_type=2
