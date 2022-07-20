@@ -352,6 +352,9 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 ######  测试指令
 	python3 test_geomNet.py --cktDir=../output/train_geomNet/savedModel --dbTest=../data/test --outDir=../output/test/test_geomNet --device=0,1  --graphName=SAS_2stage_GeoNet.pbtxt
+	
+##### 测试sampledata指令
+	python3 test_geomNet.py --cktDir=../output/train_geomNet/savedModel --dbTest=../sampleData/test --outDir=../output/test/test_geom_sampleData_Net --device=0,1  --graphName=SAS_2stage_sampleData_GeoNet.pbtxt
 
 ######  出现问题12：缩进错误Inconsistent use of tabs and spaces in indentation
 ######  原因：很明显问题出在了缩进上
