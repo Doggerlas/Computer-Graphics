@@ -383,8 +383,10 @@ python3 freeze_graph_tool_v3.py --output_dir=../output/test/test_geomNet --ckpt_
 ##### 尝试3：为了搞明白到底是模型问题还是freeze_graph存在bug，我打算测试作者SAS_twoStage_final42K.pbtxt文件能否冻结 
 ##### (成功)成功冻结 在../output/Autor_give/Frozen_network/FinalModelFrozen/ 下生成SAS_twoStage_final42K_frozen.pb
 
-![训练](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/1114.png)
 
 python3 freeze_graph_tool.py --output_dir=../output/Autor_give/Frozen_network/FinalModelFrozen/ --ckpt_dir=../output/Autor_give/fullNetwork --ckpt_name=SAS_twoStage_final42K.pbtxt --graph_name=SAS_twoStage_final42K_frozen.pb --net_type=2 
+
+![训练](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/1114.png)
+
 
 ##### 好吧 现在我知道了tf2.0没有冻结代码这个功能
