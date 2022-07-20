@@ -365,5 +365,22 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 # 20220719 在服务器上 升级freeze_graph_tool.py到tf2.0
 
-######  测试指令
-	python3 freeze_graph_tool.py --output_dir=../output/test/test_geomNet --ckpt_dir=../output/train_geomNet/savedModel --ckpt_name=SAS_2stage_GeoNet.pbtxt --graph_name=SAS_2stage_GeoNet.pb --net_type=2
+##### (失败)冻结指令 开始会提示多了个参数：会提示variable_names_blacklist参数错误，删去这个参数，执行以下语句会提示IndexError: tuple index out of range
+##### 注：--net_type 0-naiveNet、1-baselineNet、2-GeomNet
+
+![训练](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/1112.png)
+
+![训练](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/1113.png)
+
+python3 freeze_graph_tool.py --output_dir=../output/test/test_geomNet --ckpt_dir=../output/train_geomNet/savedModel --ckpt_name=SAS_2stage_GeoNet.pbtxt --graph_name=SAS_2stage_GeoNet.pb --net_type=2 
+
+##### (失败)尝试1：想用meta文件而不是pbtxt生成模型，语句中 --ckpt_name=SAS_2stage_GeoNet.pbtxt 没意义，程序中已经写死input_graph_path = '../output/train_geomNet/savedModel/my_model498000.ckpt.meta' 会提示：google.protobuf.message.DecodeError: Error parsing message with type 'tensorflow.GraphDef'
+python3 freeze_graph_tool_v2.py --output_dir=../output/test/test_geomNet --ckpt_dir=../output/train_geomNet/savedModel --ckpt_name= --graph_name=SAS_2stage_GeoNet.pb --net_type=2 
+
+##### (失败)尝试2：想把pbtxt转换成pb作为计算图输入，先执行pbtxt2pb.py脚本将SAS_2stage_GeoNet.pbtxt转换为tmp.pb 再执行以下语句也提示IndexError: tuple index out of range
+python3 freeze_graph_tool_v3.py --output_dir=../output/test/test_geomNet --ckpt_dir=../output/train_geomNet/savedModel --ckpt_name=tmp.pb --graph_name=SAS_2stage_GeoNet.pb --net_type=2 
+
+##### 尝试3：为了搞明白到底是模型问题还是freeze_graph存在bug，我打算测试作者SAS_twoStage_final42K.pbtxt文件能否冻结 
+##### (成功)成功冻结 在../output/Autor_give/Frozen_network/FinalModelFrozen/ 下生成SAS_twoStage_final42K_frozen.pb
+python3 freeze_graph_tool.py --output_dir=../output/Autor_give/Frozen_network/FinalModelFrozen/ --ckpt_dir=../output/Autor_give/fullNetwork --ckpt_name=SAS_twoStage_final42K.pbtxt --graph_name=SAS_twoStage_final42K_frozen.pb --net_type=2 
+##### 好吧 现在我知道了tf2.0没有冻结代码这个功能
