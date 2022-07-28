@@ -1,0 +1,54 @@
+2022-07-27 20:48:04,835 - main - INFO - ---Test preparation: ---
+2022-07-27 20:48:04,835 - main.utils - INFO - Training settings:
+2022-07-27 20:48:04,835 - main.utils - INFO - inpDir: ../input_pic
+2022-07-27 20:48:04,835 - main.utils - INFO - outDir: ../output/test/one_example
+2022-07-27 20:48:04,835 - main.utils - INFO - device: 0,1
+2022-07-27 20:48:04,835 - main.utils - INFO - rootFt: 32
+2022-07-27 20:48:04,835 - main.utils - INFO - cktDir: ../output/train_geomNet/savedModel
+2022-07-27 20:48:04,835 - main.utils - INFO - nbThreads: 1
+2022-07-27 20:48:04,835 - main.utils - INFO - dsWeight: 5.0
+2022-07-27 20:48:04,835 - main.utils - INFO - regWeight: 2.0
+2022-07-27 20:48:04,835 - main.utils - INFO - dlossScale: 920.0
+2022-07-27 20:48:04,836 - main.utils - INFO - nlossScale: 430.0
+2022-07-27 20:48:04,836 - main.utils - INFO - graphName: SAS_2stage_GeoNet.pbtxt
+2022-07-27 20:48:04,836 - main.testing - INFO - ---Begin testing: ---
+2022-07-27 20:48:10,785 - main.testing - INFO - restore from the checkpoint ../output/train_geomNet/savedModel/my_model498000.ckpt
+2022-07-27 20:48:11,433 - main.testing - INFO - save graph tp pbtxt, done
+2022-07-27 20:48:15,831 - main.testing - INFO - Test case 0, loss: 1074.822509765625, 1.1050009727478027, 0.6042628884315491, 1.0030372142791748, 0.35152584314346313, 0.1596037894487381, 0.028784558176994324, 0.0, 0.0165699552744627
+2022-07-27 20:48:15,848 - main.testing - INFO - Finish test model, average loss is: 1074.822509765625
+2022-07-27 20:52:01,246 - main - INFO - ---Test preparation: ---
+2022-07-27 20:52:01,246 - main.utils - INFO - Training settings:
+2022-07-27 20:52:01,246 - main.utils - INFO - inpDir: ../input_pic
+2022-07-27 20:52:01,246 - main.utils - INFO - outDir: ../output/test/one_example
+2022-07-27 20:52:01,246 - main.utils - INFO - device: 0,1
+2022-07-27 20:52:01,246 - main.utils - INFO - rootFt: 32
+2022-07-27 20:52:01,246 - main.utils - INFO - cktDir: ../output/train_geomNet/savedModel
+2022-07-27 20:52:01,246 - main.utils - INFO - nbThreads: 1
+2022-07-27 20:52:01,246 - main.utils - INFO - dsWeight: 5.0
+2022-07-27 20:52:01,246 - main.utils - INFO - regWeight: 2.0
+2022-07-27 20:52:01,246 - main.utils - INFO - dlossScale: 920.0
+2022-07-27 20:52:01,246 - main.utils - INFO - nlossScale: 430.0
+2022-07-27 20:52:01,246 - main.utils - INFO - graphName: SAS_2stage_GeoNet.pbtxt
+2022-07-27 20:52:01,246 - main.testing - INFO - ---Begin testing: ---
+2022-07-27 20:52:07,332 - main.testing - INFO - restore from the checkpoint ../output/train_geomNet/savedModel/my_model498000.ckpt
+2022-07-27 20:52:07,976 - main.testing - INFO - save graph tp pbtxt, done
+2022-07-27 20:52:12,398 - main.testing - INFO - Test case 0, loss: 1074.8035888671875, 1.10499107837677, 0.6042578816413879, 1.0030189752578735, 0.3515207767486572, 0.1596013605594635, 0.02878325805068016, 0.0, 0.01656978204846382
+2022-07-27 20:52:12,415 - main.testing - INFO - Finish test model, average loss is: 1074.8035888671875
+2022-07-27 22:04:39,987 - main - INFO - ---Test preparation: ---
+2022-07-27 22:04:39,987 - main.utils - INFO - Training settings:
+2022-07-27 22:04:39,987 - main.utils - INFO - inpDir: ../input_pic
+2022-07-27 22:04:39,987 - main.utils - INFO - outDir: ../output/test/one_example
+2022-07-27 22:04:39,987 - main.utils - INFO - device: 0,1
+2022-07-27 22:04:39,987 - main.utils - INFO - rootFt: 32
+2022-07-27 22:04:39,987 - main.utils - INFO - cktDir: ../output/train_geomNet/savedModel
+2022-07-27 22:04:39,987 - main.utils - INFO - nbThreads: 1
+2022-07-27 22:04:39,987 - main.utils - INFO - dsWeight: 5.0
+2022-07-27 22:04:39,987 - main.utils - INFO - regWeight: 2.0
+2022-07-27 22:04:39,987 - main.utils - INFO - dlossScale: 920.0
+2022-07-27 22:04:39,987 - main.utils - INFO - nlossScale: 430.0
+2022-07-27 22:04:39,987 - main.utils - INFO - graphName: SAS_2stage_GeoNet.pbtxt
+2022-07-27 22:04:39,988 - main.testing - INFO - ---Begin testing: ---
+2022-07-27 22:04:45,998 - main.testing - INFO - restore from the checkpoint ../output/train_geomNet/savedModel/my_model498000.ckpt
+2022-07-27 22:04:46,641 - main.testing - INFO - save graph tp pbtxt, done
+2022-07-27 22:04:51,070 - main.testing - INFO - Test case 0, loss: 1074.8095703125, 1.1050007343292236, 0.6042621731758118, 1.0030250549316406, 0.35152187943458557, 0.15960386395454407, 0.028785262256860733, 0.0, 0.016570698469877243
+2022-07-27 22:04:51,085 - main.testing - INFO - Finish test model, average loss is: 1074.8095703125

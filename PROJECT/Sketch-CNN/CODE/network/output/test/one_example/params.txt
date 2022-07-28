@@ -1,0 +1,11 @@
+inpDir: ../input_pic
+outDir: ../output/test/one_example
+device: 0,1
+rootFt: 32
+cktDir: ../output/train_geomNet/savedModel
+nbThreads: 1
+dsWeight: 5.0
+regWeight: 2.0
+dlossScale: 920.0
+nlossScale: 430.0
+graphName: SAS_2stage_GeoNet.pbtxt
