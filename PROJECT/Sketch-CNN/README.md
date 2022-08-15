@@ -60,7 +60,7 @@ tf_upgrade_v2  --infile ./test_geomNet.py  --outfile ./test_geomNet_v2.py --repo
 ##### 通过克隆snowfllakes来创建一个称为flowers的副本
     conda create -n flowers --clone snowflakes
 ##### 删除一个环境
-    conda remove -n flowers 
+    conda env remove -n flowers
 ##### 假设你需要python3来编译程序，但是你不想覆盖掉你的python2.7来升级，你可以创建并激活一个名为snakes的环境，并通过下面的命令来安装最新版本的python3：
     conda create -n snakes python=3 然后检查新的环境中的python版本 python --version
 ##### 查看已安装包
