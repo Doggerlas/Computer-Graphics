@@ -400,4 +400,25 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 # 20220815 在笔记本2080 win0上 部署并实现
 ## 环境搭建
 ##### 完全使用anaconda执行以下指令
-
+##### 创建环境TensorFlow2.6.0+open3d 0.7.0 
+	conda create -n tf260gpu+open3d python=3.6.8
+##### 激活环境
+	conda activate tf260gpu+open3d
+##### 代码中有几个o3d的API仅支持python3.6 所以需要安装py3.6
+	pip install tensorflow-gpu==2.6.0 -i https://pypi.tuna.tsinghua.edu.cn/simple   
+	conda install cudatoolkit=11 
+	conda install cudnn
+##### 测试是否可以使用GPU及CUDA
+	import tensorflow as tf
+	tf.test.is_built_with_cuda()	#检查tensorflow是否得到CUDA支持，安装成功则显示true，否则为false
+	tf.test.is_gpu_available()	#检查tensorflow是否可以获取到GPU，安装成功则显示true，否则为false
+##### 安装opencv-python
+	pip install opencv-python
+##### 不能直接使用pip安装pyopengl 因为直接安装的是32位的 需要[先预下载对应于python3.6版本的pyoengl](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyopengl)，从anaconda中cd到该whl安装包路径下进行安装
+	pip install PyOpenGL_accelerate-3.1.5-cp36-cp36m-win_amd64.whl
+	pip install PyOpenGL-3.1.5-cp36-cp36m-win_amd64.whl
+##### 以下包用于3D显示
+	pip install Pillow pandas numpy open3d-python
+##### 以下包用于模型测试
+	pip install tf_slim
+	pip install keras==2.6
