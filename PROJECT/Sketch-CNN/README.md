@@ -396,3 +396,8 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ![训练](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/1114.png)
 
 ##### 好吧 现在我知道了tf2.0没有冻结代码这个功能
+
+# 20220815 在笔记本2080 win0上 部署并实现
+## 环境搭建
+##### 完全使用anaconda执行以下指令
+
