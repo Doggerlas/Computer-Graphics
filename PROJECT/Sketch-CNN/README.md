@@ -422,3 +422,9 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 ##### 以下包用于模型测试
 	pip install tf_slim
 	pip install keras==2.6
+##### 脚本运行非常简单 先按照以下方式部署文件结构
+	![文件结构](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png)
+##### 然后用anaconda直接执行即可
+	python Input10pics.py
+	python GUI.py
+![执行结果](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
