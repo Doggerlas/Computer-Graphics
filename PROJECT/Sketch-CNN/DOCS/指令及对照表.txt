@@ -1,0 +1,53 @@
+#服务器拷贝test_gemoNet.py到docker
+docker cp /home/user1/Wlm/test_geomNet.py  482ee69cb4415710228d1e64fdf10fb572a86b4fcbdf9924868746457c2b4c6b:/root/SketchCNN/network/script
+
+#从docker下载test_input_image和test_output_image到服务器
+docker cp 482ee69cb4415710228d1e64fdf10fb572a86b4fcbdf9924868746457c2b4c6b:/root/SketchCNN/network/output/test/test_geom_sampleData_Net/test_input_img ./
+docker cp 482ee69cb4415710228d1e64fdf10fb572a86b4fcbdf9924868746457c2b4c6b:/root/SketchCNN/network/output/test/test_geom_sampleData_Net/test_output_img ./
+
+docker cp 482ee69cb4415710228d1e64fdf10fb572a86b4fcbdf9924868746457c2b4c6b:/root/SketchCNN/network/output/test/one_example/test_input_img ./
+docker cp 482ee69cb4415710228d1e64fdf10fb572a86b4fcbdf9924868746457c2b4c6b:/root/SketchCNN/network/output/test/one_example/test_output_img ./
+
+
+#test_gemoNet.py测试指令
+#依赖于decoder版本
+python3 test_geomNet_org.py --cktDir=../output/train_geomNet/savedModel --dbTest=../sampleData/test --outDir=../output/test/test_geom_sampleData_Net --device=0,1  --graphName=SAS_2stage_sampleData_GeoNet.pbtxt
+#依赖于opencv版本
+python3 test_geomNet.py --cktDir=../output/train_geomNet/savedModel --inpDir=../input_pic --outDir=../output/test/one_example --device=0,1  --graphName=SAS_2stage_GeoNet.pbtxt
+
+#删除指令
+rm -rf ../output/test/test_geom_sampleData_Net/
+rm -rf ../output/test/one_example/
+
+
+# SAS_twoStage_final42K_node_def.txt
+
+Input: cook_raw_input/Slice cook_raw_input/Slice_1 cook_raw_input/Slice_15 cook_raw_input/Slice_3 cook_raw_input/Slice_5 cook_raw_input/Slice_6 cook_raw_input/Slice_12
+InputChannelNb: 1 1 1 1 1 1 1
+Output: SASMFGeoNet/output_d SASMFGeoNet/output_n SASMFGeoNet/output_c SASFieldNet/output_f
+
+#输入
+输入节点名称		       test_procedure中    形状类型									network的注释					cook_raw_input切分													test_real_input切分						代表值
+cook_raw_input/Slice 	： npr_lines	 	   shape=(1, 256, 256, 1), dtype=float32	npr曲线(必选)					npr_line = tf.slice(input_data, [0, 0, 0, 0], [-1, -1, -1, 1])		'npr_input:0': test_real_input[0],		:离散01(单通道)
+cook_raw_input/Slice_1 	： ds 		 	 	   shape=(1, 256, 256, 1), dtype=float32	深度样本(可选)					depth_sample = tf.slice(input_data, [0, 0, 0, 3], [-1, -1, -1, 1])	'ds_input:0': test_real_input[1],		:离散01(单通道)
+cook_raw_input/Slice_15 ： mask2d	 	 	   shape=(1, 256, 256, 1), dtype=float32	轮廓模板(必选)					mask2d = tf.slice(label_data, [0, 0, 0, 13], [-1, -1, -1, 1])		'2dMask_input:0': test_real_input[10],	:离散01(单通道)
+cook_raw_input/Slice_3 	： fm		 	 	   shape=(1, 256, 256, 1), dtype=float32	特征掩码(必选)					feature_mask = tf.slice(input_data, [0, 0, 0, 4], [-1, -1, -1, 1])	'fLMask_input:0': test_real_input[2],	:离散01(单通道)
+cook_raw_input/Slice_5 	： selm		 	 	   shape=(1, 256, 256, 1), dtype=float32	选定的线掩码(可选:曲率提示)		selLine_mask = tf.slice(label_data, [0, 0, 0, 15], [-1, -1, -1, 1])	'sLMask_input:0': test_real_input[11],	:离散01(单通道)
+cook_raw_input/Slice_6 	： ndotv		 	   shape=(1, 256, 256, 1), dtype=float32	正常变化标量(可选:曲率提示)		vdotn_scalar = tf.slice(label_data, [0, 0, 0, 16], [-1, -1, -1, 1])	'curvMag_input:0': test_real_input[12]	:离散01(单通道)
+cook_raw_input/Slice_12	： mask_cline_inv	   shape=(1, 256, 256, 1), dtype=float32	(必选)							cmask_line = tf.slice(label_data, [0, 0, 0, 10], [-1, -1, -1, 1])	'clIMask_input:0': test_real_input[7],	:离散01(单通道)
+						： shapemask_input	   shape=(1, 256, 256, 1), dtype=float32	(必选)
+#输出
+SASMFGeoNet/output_d 	：logit_d		 shape=(None, None, None, 1), dtype=float32	深度
+SASMFGeoNet/output_n 	：logit_n		 shape=(None, None, None, 3), dtype=float32	法线
+SASMFGeoNet/output_c 	：logit_c		 shape=(None, None, None, 1), dtype=float32	置信度
+SASFieldNet/output_f	：logit_f		 shape=(None, None, None, 4), dtype=float32	曲率流场
+
+
+输入节点名称		       test_procedure中    形状类型									network的注释					
+cook_raw_input/Slice 	： npr_lines	 	   shape=(1, 256, 256, 1), dtype=float32	npr曲线(必选)	
+cook_raw_input/Slice_15 ： mask2d	 	 	   shape=(1, 256, 256, 1), dtype=float32	轮廓模板(必选)					
+cook_raw_input/Slice_1 	： ds 		 	 	   shape=(1, 256, 256, 1), dtype=float32	深度样本(可选)		
+			
+cook_raw_input/Slice_8 	： shapemask_input	   shape=(1, 256, 256, 1), dtype=float32	尖锐轮廓(可选:曲率提示)	
+cook_raw_input/Slice_12	： mask_cline_inv	   shape=(1, 256, 256, 1), dtype=float32	存在曲率(可选：曲率提示)	
+cook_raw_input/Slice_3 	： fm		 	 	   shape=(1, 256, 256, 1), dtype=float32	特征掩码，曲率具体值(可选:曲率提示)	
