@@ -1,5 +1,11 @@
+# kinect M13运行配置
+client ->Release Win32
+sever ->Release x64
+model_bind ->Release Win32
+record_player->四种搭配均可 推荐Release Win32
+
 # 配置的时候 属性最好选择所有配置 所有平台！！！
-# 目前不知道WindowsSDKS的kinect如何安装的 问问问？？？
+# WindowsSDKS的kinect是之前预先安装好的 
 
 # 问题一：
 在vs2017中重新编译项目Kclient时显示：无法找到 v120 的生成工具(平台工具集 =“v120”)。若要使用 v120 生成工具进行生成，请安装 v120 生成工具。或者，可以升级到当前 Visual Studio 工具，方式是通过选择“项目”菜单或右键单击该解决方案，然后选择“重定解决方案目标”
