@@ -5,7 +5,10 @@ model_bind ->Release Win32
 
 sever ->Release x64
 
-record_player->四种搭配均可 推荐Release x64或者Win32
+record_player->四种搭配均可 推荐Release x64
+
+##### Sever运行自身的.b文件方式：(打开顺序不固定，先ctrl+f5打开哪个都可以。调试选项固定为Release x64)首先更改../data../Net.conf中的IP地址。设置sever为启动项，ctrl+f5；再设置record_player为启动项，ctrl+f5，选择.b文件。
+
 
 # 配置的时候 属性最好选择所有配置 所有平台！！！
 # WindowsSDKS的kinect是之前预先安装好的 
