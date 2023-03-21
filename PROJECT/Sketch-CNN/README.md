@@ -2,6 +2,7 @@
 # DOCS: 汇报的PPT汇总及原始paper
 # PICS: readme用到的图片
 # CODE on Windows: 在Win10上用pyopengl开发的交互代码工具 包括交互输入窗口 还有open3d方法的输出
+# 3D_Surface_Reconstruction：最终的软著提交版本
 
 # 代码升级指令
 tf_upgrade_v2 \
@@ -428,3 +429,4 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 	python Input10pics.py
 	python GUI.py
 ![执行结果](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C.png)
+# 20230317 最终的软著提交版本 使用PyQt5做的交互界面 详情请见3D_Surface_Reconstruction的软著说明书
