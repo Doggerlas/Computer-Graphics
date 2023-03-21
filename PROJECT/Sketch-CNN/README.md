@@ -1,7 +1,7 @@
 # CODE: 7月份升级的代码 包括linux上改造完的训练 测试程序 编译出的decoder等 ； windows上的改造完但是没有使用的cpp文件
 # DOCS: 汇报的PPT汇总及原始paper
 # PICS: readme用到的图片
-# CODE on Windows: 在Win10上开发的交互代码工具 包括交互输入窗口 还有open3d方法的输出
+# CODE on Windows: 在Win10上用pyopengl开发的交互代码工具 包括交互输入窗口 还有open3d方法的输出
 
 # 代码升级指令
 tf_upgrade_v2 \
