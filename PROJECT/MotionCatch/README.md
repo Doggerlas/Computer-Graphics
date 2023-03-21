@@ -1,8 +1,11 @@
 # kinect M13运行配置
 client ->Release Win32
-sever ->Release x64
+
 model_bind ->Release Win32
-record_player->四种搭配均可 推荐Release Win32
+
+sever ->Release x64
+
+record_player->四种搭配均可 推荐Release x64或者Win32
 
 # 配置的时候 属性最好选择所有配置 所有平台！！！
 # WindowsSDKS的kinect是之前预先安装好的 
