@@ -2,7 +2,7 @@
 # DOCS: 汇报的PPT汇总及原始paper
 # PICS: readme用到的图片
 # CODE on Windows: 在Win10上用pyopengl开发的交互代码工具 包括交互输入窗口 还有open3d方法的输出
-# 3D_Surface_Reconstruction：最终的软著提交版本
+# 3D_Surface_Reconstruction：最终的软著提交版本 [点击我](https://drive.google.com/drive/folders/1m0trxXgD-HG7GCResZFtq-NWeVVxFOTS?usp=share_link)
 
 # 代码升级指令
 tf_upgrade_v2 \
