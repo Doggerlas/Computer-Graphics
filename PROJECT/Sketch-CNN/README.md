@@ -397,7 +397,7 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 
 ##### 好吧 现在我知道了tf2.0没有冻结代码这个功能
 
-# 20220815 在笔记本2080 win0上 部署并实现
+# 20220815 在笔记本2080 win10上 部署并实现
 ## 环境搭建
 ##### 完全使用anaconda执行以下指令
 ##### 创建环境TensorFlow2.6.0+open3d 0.7.0 
@@ -423,7 +423,7 @@ python项目相互调用是将文件夹中的每个文件看做是一个pakege(�
 	pip install tf_slim
 	pip install keras==2.6
 ##### 脚本运行非常简单 先按照以下方式部署文件结构
-	![文件结构](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png)
+![文件结构](https://github.com/Doggerlas/Computer-Graphics/blob/main/PROJECT/Sketch-CNN/PICS/%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.png)
 ##### 然后用anaconda直接执行即可
 	python Input10pics.py
 	python GUI.py
