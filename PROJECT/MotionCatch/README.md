@@ -1,5 +1,5 @@
 # kinect M13运行配置
-client ->Release Win32
+client ->Release x64
 
 model_bind ->Release Win32
 
