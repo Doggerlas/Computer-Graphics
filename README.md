@@ -1,6 +1,6 @@
 # Computer-Graphics
 
-## OpenGL:   工具书+代码
+## [OpenGL](https://github.com/Doggerlas/Computer-Graphics/tree/main/OpenGL):   工具书+代码
 
 ## PROJECT： 项目
 
